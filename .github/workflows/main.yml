@@ -13,14 +13,11 @@ jobs:
         with:
           dotnet-version: 8.0
 
-      - name: Install dependencies
-        run: dotnet restore
-
       - name: Build
         run: dotnet build --configuration Release --no-restore
 
       - name: Publish
-        run: dotnet publish [YOUR_PROJECT_NAME]/[YOUR_PROJECT_NAME].csproj --configuration Release --framework netcoreapp3.1 --output ./publish --runtime win-x86 --self-contained true -p:PublishTrimmed=false -p:PublishSingleFile=false
+        run: dotnet publish [YOUR_PROJECT_NAME]/[YOUR_PROJECT_NAME].csproj --configuration Release --framework netcoreapp8.0 --output ./publish --runtime win-x86 --self-contained true -p:PublishTrimmed=false -p:PublishSingleFile=false
 
       - name: Test with .NET
         run: dotnet test
